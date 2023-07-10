@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomBGColors
+    </title>
+<style>
+*{
+    padding:0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+button{
+    padding: 10px;
+    font-size: large;
+    background-color: rgb(255, 78, 114);
+    font-family: sans-serif;
+    border-radius: 60px;
+    border: none;
+    box-shadow: 0px 0px 10px 2px rgb(45, 41, 41);
+    color:white;
+    margin-right: 20px;
+    margin-top: 50%;
+
+}
+.btn{
+    /* display: flex; */
+    padding-left: 35%;
+    height: 100%;
+    width: 100%;
+
+    /* border: 2px solid red ; */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+button:active{
+    box-shadow: 0px 0px 2px 0px rgb(45, 41, 41);
+    background-color: rgb(233, 78, 109);
+    color: rgb(209, 204, 204);
+}
+#hexavalues{
+float: right;
+margin-right: 120px;
+/* font-size: 35px; */
+}
+.head{
+    margin-top: 20px;
+}
+
+</style>
+
+</head>
+<body id ="body">
+    <div class = "head">
+        <h1 style="display: inline;">COLOR CHANGER</h1><h1 id = "hexavalues"></h1>
+    </div>
+<div class = "btn">
+    <button id = "button">Change Color</button>
+</div>
+
+    <script src="script.js" type="text/javascript">
+
+let hexelem = document.getElementById("hexavalues");
+let hexavalue = "#";
+let body = document.getElementById("body");
+let btn = document.getElementById('button');
+ btn.addEventListener('click', changeBG);
+// let adddiv = document.createElement('div');
+let hexarr = ['A','B','C', 'D', 'E', 'F' ,1,2,3,4,5,6,7,8,9,0];
+
+function hexGen(arr){
+let num ;
+    for(let i = 0 ; i< 6;i++ ){
+        num = Math.floor(Math.random()*15);
+        elem = arr[num];
+        hexavalue += elem;
+    }
+    
+        return hexavalue;
+}
+
+function changeBG(){
+    let bgc = hexGen(hexarr);
+    hexelem.innerHTML = bgc;
+    body.style.backgroundColor = bgc;
+    // body.style.transitionDelay = "0.2s";
+    body.style.transitionDuration = "1.5s";
+    // hexelem.style.transitionDuration = "1.5s";
+    hexavalue ="#";
+}
+
+    </script>
+</body>
+</html>
